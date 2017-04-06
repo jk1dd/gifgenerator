@@ -1,5 +1,6 @@
-<%= flash[:success] %>
+<%#= flash[:success] %>
 <h1>User page here</h1>
 <div class="">
   Welcome, <%= @user.username %>!
 </div>
+<%= link_to "Logout", logout_path %>

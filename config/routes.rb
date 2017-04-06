@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root to: 'sessions#new'
 
   get '/login', to: 'sessions#new'
@@ -9,13 +11,13 @@ Rails.application.routes.draw do
     resources :favorites, only: [:index]
   end
 
-  namespace :admin do
-    root to: 'admin/categories#index'
-    resources :categories do
-      resources :gifs
-    end
-  end
+  # namespace :admin do
+  #   root to: 'admin/categories#index'
+  #   resources :categories do
+  #     resources :gifs
+  #   end
+  # end
 
-  resources :gifs, only: [:index, :show]
+  # resources :gifs, only: [:index, :show]
 
 end
