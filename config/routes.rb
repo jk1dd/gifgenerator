@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
   root to: 'sessions#new'
 
@@ -8,16 +7,12 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :show] do
-    resources :favorites, only: [:index]
+    # resources :favorites, only: [:index]
   end
 
-  # namespace :admin do
-  #   root to: 'admin/categories#index'
-  #   resources :categories do
-  #     resources :gifs
-  #   end
-  # end
-
-  # resources :gifs, only: [:index, :show]
+  namespace :admin do
+    # root to: 'admin/categories#index'
+    resources :categories
+  end
 
 end
