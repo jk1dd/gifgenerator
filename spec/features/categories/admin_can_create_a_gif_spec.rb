@@ -18,6 +18,9 @@ RSpec.describe "Admin visits new categories page" do
     expect(current_path).to eq(category_path(Category.last))
     expect(Gif.count).to eq(1)
     expect(page).to have_content("happy gifs")
+    within('.gif') do
+      expect(page).to have_css("img")
+    end
   end
 
   # Xit "if category exists new one doesn't get created"

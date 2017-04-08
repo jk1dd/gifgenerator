@@ -2,3 +2,11 @@
 <div class="">
   <%= @category.name %> gifs
 </div>
+
+<% @category.gifs.each do |gif| %>
+
+<div class="gif">
+  <iframe width='640' height='390' src="<%= gif.image_url  %>" frameborder="0"></iframe><br/>
+</div>
+
+<% end %>
