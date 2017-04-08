@@ -11,7 +11,7 @@ class Admin::CategoriesController < Admin::BaseController
     raw_data = response.body
     data = JSON.parse(raw_data)
     url = data["data"]["embed_url"]
-    @category = Category.new(category_params)
+    @category = Category.find_or_initialize_by(category_params)
     if @category.save
       @category.gifs.create(image_url: url)
       redirect_to category_path(@category)
