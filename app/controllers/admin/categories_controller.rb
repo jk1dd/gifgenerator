@@ -7,10 +7,10 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @name = params[:category][:name]
-    response = Faraday.get("http://api.giphy.com/v1/gifs/search?q=#{@name}&api_key=dc6zaTOxFJmzC")
+    response = Faraday.get("http://api.giphy.com/v1/gifs/translate?s=#{@name}&api_key=dc6zaTOxFJmzC")
     raw_data = response.body
     data = JSON.parse(raw_data)
-    url = data["data"][1]["embed_url"]
+    url = data["data"]["embed_url"]
     @category = Category.new(category_params)
     if @category.save
       @category.gifs.create(image_url: url)
