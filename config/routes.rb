@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     # root to: 'admin/categories#index'
-    resources :categories
+    resources :categories, only: [:new, :create, :destroy]
   end
+
+  resources :categories, only: [:index, :show]
 
 end
