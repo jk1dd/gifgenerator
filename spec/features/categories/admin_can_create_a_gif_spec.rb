@@ -16,7 +16,7 @@ RSpec.describe "Admin visits new categories page" do
     click_on "Create Category"
 
     expect(current_path).to eq(category_path(Category.last))
-    expect(Gif.where(id: 1, image_url: "http://giphy.com/embed/11sBLVxNs7v6WA" )).to exist
+    expect(Gif.count).to eq(1)
     expect(page).to have_content("happy gifs")
   end
 
