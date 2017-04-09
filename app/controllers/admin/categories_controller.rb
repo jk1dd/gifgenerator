@@ -18,10 +18,12 @@ class Admin::CategoriesController < Admin::BaseController
     else
       render :new
     end
-    # response = Faraday.get("http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC")
-    # # Category.gifs.create(image_url: url)
-    # GIF.create(image_url: url)
+  end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path
   end
 
   private

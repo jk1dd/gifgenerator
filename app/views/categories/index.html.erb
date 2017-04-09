@@ -2,7 +2,7 @@
 
 <div class="">
   <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category) %>
+    <p><%= link_to category.name, category_path(category) %></p><br>
     <% if current_user.admin? %>
       <%= link_to "delete this", admin_category_path(category), method: :delete %>
     <% end %>
