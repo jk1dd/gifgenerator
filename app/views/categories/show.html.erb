@@ -8,5 +8,8 @@
 <div class="gif">
   <iframe width='640' height='390' src="<%= gif.image_url %>" frameborder="0"></iframe><br/>
 </div>
+<div class="">
+  <%= button_to "Add to Favorites", user_favorites_path(@user, type: "favorite"), method: :post %>
+</div>
 
 <% end %>

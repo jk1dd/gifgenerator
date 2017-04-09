@@ -40,4 +40,22 @@ RSpec.describe User do
       expect(user).to_not be_valid
     end
   end
+
+  context "relationships" do
+    # it "user has many favorites" do
+    #   user = User.create(username: "steve",
+    #   email: "test",
+    #   password: "pass")
+    #
+    #   expect(user).to respond_to(:favorites)
+    # end
+
+    it "user has many gifs" do
+      user = User.create(username: "steve",
+      email: "test",
+      password: "pass")
+
+      expect(user).to respond_to(:gifs)
+    end
+  end
 end
