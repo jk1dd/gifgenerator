@@ -8,11 +8,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Gif Generator</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul id="navbar" class='nav navbar-nav'>
+          <li class="<%= 'active' if current_page?(categories_path) %>">
+            <%= link_to 'Home', categories_path %></li>
+          <li><%= link_to 'Archives', '#' %></li>
+          <li class="<%= 'active' if current_page?(categories_path) %>">
+            <%= link_to 'About', categories_path %></li>
+          <li class="<%= 'active' if current_page?(categories_path) %>">
+            <%= link_to 'Contact', categories_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <div class="btn-group">
+            <%= button_to "New Post", "#", class: 'btn btn-primary navbar-btn'%>
+          </div>
+        </ul>
+    </div>
+</nav>
+</div>
+
   <body>
     <% flash.each do |type, message| %>
       <%= content_tag :div, message, class: "flash_#{type}" %>
     <% end %>
-    
-    <%= yield %>
+
+    <%#= yield %>
+
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
