@@ -2,4 +2,18 @@
 <div class="">
   Welcome, <%= @user.username %>!
 </div>
-<%= link_to "Logout", logout_path, method: :delete %>
+
+<% @user.gifs.each do |gif| %>
+
+<div class="gif">
+  <iframe width='640' height='390' src="<%= gif.image_url %>" frameborder="0"></iframe><br/>
+</div>
+<div class="">
+  <%= button_to "Remove from Favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put %>
+</div>
+
+<% end %>
+
+<div class="">
+  <%= link_to "Logout", logout_path, method: :delete %>
+</div>

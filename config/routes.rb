@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :show] do
-    resources :favorites, only: [:create, :destroy]
+    # resources :favorites, only: [:create, :destroy]
   end
+
 
   namespace :admin do
     # root to: 'admin/categories#index'
@@ -17,4 +18,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show]
 
+  resources :gifs, only: [:put] do
+    put :favorite, on: :member
+  end
 end

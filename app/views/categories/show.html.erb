@@ -9,7 +9,8 @@
   <iframe width='640' height='390' src="<%= gif.image_url %>" frameborder="0"></iframe><br/>
 </div>
 <div class="">
-  <%= button_to "Add to Favorites", user_favorites_path(@user, type: "favorite"), method: :post %>
+  <%= button_to "Add to Favorites", favorite_gif_path(gif, type: "favorite"), method: :put %>
+  <%#= button_to "Remove from Favorites", favorite_gif_path(gif, type: "unfavorite"), method: :put %>
 </div>
 
 <% end %>
