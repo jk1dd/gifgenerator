@@ -3,4 +3,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @user = current_user
   end
+
+  def index
+    @categories = Category.all
+  end
 end
