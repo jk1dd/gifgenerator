@@ -25,7 +25,22 @@ RSpec.feature "admin can delete a category" do
       expect(user.gifs.count).to eq(0)
       expect(category.gifs.count).to eq(0)
       expect(page).to_not have_link("whatever")
+    end
 
+    it "user cannot see this button" do
+      category = Category.create(name: "whatever")
+      gif = category.gifs.create(image_url: "http://giphy.com/embed/11sBLVxNs7v6WA")
+      user = User.create(username: "steve",
+      email: "test",
+      password: "pass",
+      role: 0)
+      user.gifs << gif
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit categories_path
+
+      expect(page).to_not have_link("delete this")
     end
   end
 end
