@@ -23,7 +23,9 @@
             <% if session[:user_id] != nil %>
               <li><%= link_to "My Page", user_path(session[:user_id]) %></li>
             <% end %>
-            <li><%= link_to "Log in", login_path %></li>
+            <% if session[:user_id].nil? %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
