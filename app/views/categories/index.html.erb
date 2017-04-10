@@ -1,10 +1,12 @@
 <h1>All Categories!</h1>
 
-<div class="">
+<div class="center">
   <% @categories.each do |category| %>
-    <p><%= link_to category.name, category_path(category) %></p><br>
+  <div class="text-uppercase", id="categories">
+    <%= link_to category.name, category_path(category) %><br>
+  </div>
     <% if current_user.admin? %>
-      <%= link_to "delete this", admin_category_path(category), method: :delete %>
+      <%= button_to "delete this", admin_category_path(category), method: :delete, class: "btn-warning" %>
     <% end %>
   <% end %>
 </div>
