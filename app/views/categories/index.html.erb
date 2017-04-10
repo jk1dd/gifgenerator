@@ -9,4 +9,8 @@
       <%= button_to "delete this", admin_category_path(category), method: :delete, class: "btn-warning" %>
     <% end %>
   <% end %>
+
+  <% if current_user.admin? %>
+    <%= link_to "Add category", new_admin_category_path %>
+  <% end %>
 </div>
