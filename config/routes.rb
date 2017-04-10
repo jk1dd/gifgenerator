@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
 
-  root to: 'sessions#new'
+  get 'static_pages/home'
+
+  root to: 'static_pages#home'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create, :show] do
-    # resources :favorites, only: [:create, :destroy]
   end
 
 
   namespace :admin do
-    # root to: 'admin/categories#index'
     resources :categories, only: [:new, :create, :destroy]
   end
 

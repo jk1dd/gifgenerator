@@ -14,6 +14,6 @@ RSpec.feature "User can log out" do
     click_on "Logout"
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Logout successful!")
-    expect(page).to have_button("Log In")
+    expect(page).to have_link("Log in")
   end
 end
